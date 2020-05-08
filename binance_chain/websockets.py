@@ -486,7 +486,7 @@ class BinanceChainSocketManager(BinanceChainSocketManagerBase):
         req_msg = {
             "method": "subscribe",
             "topic": "orders",
-            "userAddress": address
+            "address": address
         }
         await self._conn.send_message(req_msg)
 
@@ -535,12 +535,12 @@ class BinanceChainSocketManager(BinanceChainSocketManagerBase):
         req_msg = {
             "method": "subscribe",
             "topic": "accounts",
-            "userAddress": address
+            "address": address
         }
         await self._conn.send_message(req_msg)
 
     async def subscribe_transfers(self, address: str):
-        """Return transfer updates if userAddress is involved (as sender or receiver) in a transfer.
+        """Return transfer updates if user address is involved (as sender or receiver) in a transfer.
         Multisend is also covered
 
         https://binance-chain.github.io/api-reference/dex-api/ws-streams.html#3-transfer
@@ -575,7 +575,7 @@ class BinanceChainSocketManager(BinanceChainSocketManagerBase):
         req_msg = {
             "method": "subscribe",
             "topic": "transfers",
-            "userAddress": address
+            "address": address
         }
         await self._conn.send_message(req_msg)
 
